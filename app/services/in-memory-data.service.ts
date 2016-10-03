@@ -7,10 +7,50 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     let companies = [
-      {id: 1, name: 'TopTemp'},
-      {id: 2, name: 'Google'},
+      { 
+        name: 'TopTemp',
+        id: 1, 
+      },
+      {
+        name: 'Google',
+        id: 2, 
+      },
     ];
-    return {recruits, companies};
+
+    let vacancies = [
+        {
+          id: 1,
+          owner: 'google',
+          jobtitle: 'developer',
+          description: 'bloobblieb'
+        },
+        {
+          id: 2,
+          owner: 'Google',
+          jobtitle: 'developer',
+          description: 'blablabla'
+        },
+        {
+          id: 3,
+          owner: 'Google',
+          jobtitle: 'developer',
+          description: 'blablabla'
+        },
+        {
+          id: 4,
+          owner: 'TopTemp',
+          jobtitle: 'developer',
+          description: 'blablabla'
+        },
+        {
+          id: 5,
+          owner: 'TopTemp',
+          jobtitle: 'developer',
+          description: 'blablabla'
+        }
+    ]
+    
+    return {recruits, companies, vacancies};
   }
 
 }

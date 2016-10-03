@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RecruitsComponent }      from './recruit/recruit.component';
 import { CompanyComponent }    from './company/company.component';
 import { RecruitDetailsComponent }  from './recruit-details/recruit-details.component';
-import { CompanyDetailsComponent }  from './company-details/company-details.component';
+import { VacancyComponent }  from './vacancy/vacancy.component';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   
   {
     path: 'company/details/:id',
-    component: CompanyDetailsComponent
+    component: VacancyComponent
   },
   
   

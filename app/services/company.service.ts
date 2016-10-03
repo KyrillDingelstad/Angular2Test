@@ -4,11 +4,13 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Company } from '../company/company';
+import { Vacancy } from '../vacancy/vacancy';
 
 
 @Injectable()
 export class CompanyService {
     private companiesUrl = 'app/companies'; 
+    private vacancyUrl = 'app/vacancies';
 
   constructor(private http: Http) { }
 
@@ -19,6 +21,17 @@ export class CompanyService {
                .catch(this.handleError);
   }
 
+  getVacancies(): Promise<Vacancy[]> {
+      return this.http.get(this.vacancyUrl)
+               .toPromise()
+               .then(response => response.json().data as Vacancy[])
+               .catch(this.handleError);
+  }
+
+  getCompanyVacancies(owner: string): Promise<Vacancy[]> {
+    return this.getVacancies()
+          .then(vacancies => vacancies.filter(vacancy => vacancy.owner.toLocaleLowerCase() === owner.toLocaleLowerCase() ));
+  }
   getCompany(id: number): Promise<Company> {
     return this.getCompanies()
                .then(companies => companies.find(company => company.id === id));

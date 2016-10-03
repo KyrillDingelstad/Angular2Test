@@ -18,10 +18,10 @@
   </button>
 </div>
 
-    <div *ngIf="selectedCompany">
+<div *ngIf="selectedCompany">
       <div class="recruit-form-wrapper">
         <span> selected {{selectedCompany.name}} </span>
-        <company-details [company]="selectedCompany"></company-details>
+        <vacancies [company]="selectedCompany"></vacancies>
       </div>
     <button (click)="gotoDetail()">View Details</button>
 </div>
