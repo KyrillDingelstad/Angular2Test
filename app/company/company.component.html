@@ -1,0 +1,27 @@
+<company-search></company-search>
+    <ul class="companies">
+      <li *ngFor="let company of companies"
+        [class.selected]="company === selectedCompany"
+        (click)="onSelect(company)">
+        <span class="badge">{{company.id}}</span> 
+        <span>{{company.name}}</span>
+        <button class="delete"
+            (click)="delete(company); $event.stopPropagation()">x</button>
+
+      </li>
+    </ul>
+
+    <div>
+  <label>company name:</label> <input #companyName />
+  <button (click)="add(companyName.value); companyName.value=''">
+    Add
+  </button>
+</div>
+
+    <div *ngIf="selectedCompany">
+      <div class="recruit-form-wrapper">
+        <span> selected {{selectedCompany.name}} </span>
+        <company-details [company]="selectedCompany"></company-details>
+      </div>
+    <button (click)="gotoDetail()">View Details</button>
+</div>

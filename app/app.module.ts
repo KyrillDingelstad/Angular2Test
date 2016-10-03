@@ -1,9 +1,47 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent }   from './app.component';
+import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
+import { HttpModule }     from '@angular/http';
+
+
+// Imports for loading & configuring the in-memory web api(faking a database)
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './services/in-memory-data.service';
+
+import './rxjs-extensions';
+import { routing }                 from './app.routing';
+import { AppComponent }            from './app.component';
+import { RecruitsComponent }       from './recruit/recruit.component';
+import { RecruitService }          from './services/recruit.service';
+import { RecruitDetailsComponent } from './recruit-details/recruit-details.component';
+import { RecruitSearchComponent }  from './recruit-search/recruit-search.component';
+import { CompanyComponent }        from './company/company.component';
+import { CompanyService }          from './services/company.service';
+import { CompanyDetailsComponent } from './company-details/company-details.component';
+import { CompanySearchComponent }  from './company-search/company-search.component';
+
 @NgModule({
-  imports:      [ BrowserModule ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    routing
+  ],
+  declarations: [
+    AppComponent,
+    RecruitsComponent,
+    RecruitDetailsComponent,
+    RecruitSearchComponent,
+    CompanyComponent,
+    CompanyDetailsComponent,
+    CompanySearchComponent,
+  ],
+  providers: [
+    RecruitService,
+    CompanyService,
+  ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,0 +1,27 @@
+<recruit-search></recruit-search>
+    <ul class="recruits">
+      <li *ngFor="let recruit of recruits"
+        [class.selected]="recruit === selectedRecruit"
+        (click)="onSelect(recruit)">
+        <span class="badge">{{recruit.id}}</span> 
+        <span>{{recruit.name}}</span>
+        <button class="delete"
+            (click)="delete(recruit); $event.stopPropagation()">x</button>
+
+      </li>
+    </ul>
+
+    <div>
+  <label>Recruit name:</label> <input #recruitName />
+  <button (click)="add(recruitName.value); recruitName.value=''">
+    Add
+  </button>
+</div>
+
+    <div *ngIf="selectedRecruit">
+      <div class="recruit-form-wrapper">
+        <span> selected {{selectedRecruit.name}} </span>
+        <recruit-details [recruit]="selectedRecruit"></recruit-details>
+      </div>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

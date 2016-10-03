@@ -1,0 +1,10 @@
+<div id="search-component">
+  <h4>Company Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <div *ngFor="let company of companies | async"
+         (click)="gotoDetail(company)" class="search-result" >
+      {{company.name}}
+    </div>
+  </div>
+</div>
