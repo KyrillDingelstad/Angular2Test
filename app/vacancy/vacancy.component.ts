@@ -5,6 +5,8 @@ import { Location }                 from '@angular/common';
 import { CompanyService } from '../services/company.service';
 import { Company }        from '../company/company';
 import { Vacancy }        from './vacancy';
+import { RecruitService } from '../services/recruit.service';
+import { Recruit }        from '../recruit/recruit';
 
 @Component({
   selector: 'vacancies',
@@ -21,12 +23,15 @@ export class VacancyComponent implements OnInit {
    this.getVacancies()
   }
 
+  recruits: Recruit[];
   vacancies: Vacancy[];
+  possibleRecruits: Recruit[];
 
   constructor(
     private companyService: CompanyService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private recruitService: RecruitService
   ) {}
 
   getVacancies(): void {
@@ -34,17 +39,36 @@ export class VacancyComponent implements OnInit {
   }
   
   ngOnInit(): void {
-  if(this.company) return;
-  this.route.params.forEach((params: Params) => {
-    let id = +params['id'];
-    this.companyService.getCompany(id)
-      .then(company => this.company = company);
-  });
+  if(!this.recruits) {
+    this.recruitService.getRecruits().then(recruits => this.recruits = recruits);
+  }
+
+  if(!this.company) {
+    this.route.params.forEach((params: Params) => {
+      let id = +params['id'];
+      this.companyService.getCompany(id)
+        .then(company => this.company = company);
+    });
+    }
+ }
+ intersect(a, b) {
+    var t;
+    if (b.length > a.length) t = b, b = a, a = t;
+    return a.filter(function (e) {
+        if (b.indexOf(e) !== -1) return true;
+    });
  }
 
- onSelect() {
-   console.log('selecting vacancy');
-   //TODO add tags that can link to tags in the recruit class to link recruits to a job
+ onSelect(vacancy: Vacancy) {
+   this.possibleRecruits = [];
+   if(!vacancy.tags) return;
+   for (var i = 0; i < this.recruits.length; i++) {
+     var recruit = this.recruits[i];
+     if(this.intersect(vacancy.tags, recruit.tags).length) {
+       this.possibleRecruits.push(recruit);
+     };
+   }
+   console.log(this.possibleRecruits);
  }
 
  goBack(): void {

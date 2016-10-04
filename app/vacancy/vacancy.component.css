@@ -53,3 +53,15 @@ button:disabled {
 .vacancy:hover > button {
   opacity: 1;
 }
+
+.popup-overlay {
+ position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.15); top: 0; left: 0;
+}
+
+.vacancy-details {
+  position: relative;
+  width: 50%; 
+  height: 100%;
+  margin: auto;
+  background: white;
+}

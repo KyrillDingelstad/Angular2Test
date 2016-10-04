@@ -1,11 +1,11 @@
-<div *ngIf="company">
+<div *ngIf="company" style="position: relative;">
   <h2>{{company.name}} vacancies</h2>
 </div>
 <div class="scrollable">
   <ul class="vacancies">
     <li *ngFor="let vacancy of vacancies"
           [class.selected]="vacancy === selectedVacancy"
-          (click)="onSelect(vacancy)"
+          (click)="onSelect(vacancy); hideOverlay = false;"
           class="vacancy">
           <h3>{{vacancy.jobtitle}}</h3>
           <p>{{vacancy.shortDescription}}</p>
@@ -16,7 +16,23 @@
           </ul>
           <button class="delete"
               (click)="delete(vacancy); $event.stopPropagation()">x</button>
-
+      
+        <div *ngIf="hideOverlay === false" class="popup-overlay"> 
+          <div class="vacancy-details">
+            <h2> {{vacancy.jobtitle}} </h2>
+            <p> {{vacancy.shortDescription}}</p>
+            <span> Best Candidates: </span>
+              <ul>
+              <li *ngFor="let recruit of possibleRecruits">
+                  {{recruit.name}}
+              </li>
+              </ul>
+            <button class="delete"
+              (click)="hideOverlay = true; $event.stopPropagation()">x</button>
+          </div>
+        </div>
     </li>
+
   </ul>
 </div>
+

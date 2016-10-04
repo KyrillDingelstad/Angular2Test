@@ -31,13 +31,14 @@ export class InMemoryDataService implements InMemoryDbService {
           owner: 'google',
           jobtitle: 'developer',
           shortDescription: 'bloobblieb'
-          tags: ['plop', 'ploep']
+          tags: ['javascript', 'ploep']
         },
         {
           id: 2,
           owner: 'Google',
           jobtitle: 'developer',
           shortDescription: 'blablabla'
+          tags: ['design', 'ploep']
         },
         {
           id: 3,
