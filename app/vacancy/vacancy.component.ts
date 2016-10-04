@@ -32,6 +32,7 @@ export class VacancyComponent implements OnInit {
   getVacancies(): void {
     this.companyService.getCompanyVacancies(this.company.name).then(vacancies => this.vacancies = vacancies);
   }
+  
   ngOnInit(): void {
   if(this.company) return;
   this.route.params.forEach((params: Params) => {
@@ -40,6 +41,12 @@ export class VacancyComponent implements OnInit {
       .then(company => this.company = company);
   });
  }
+
+ onSelect() {
+   console.log('selecting vacancy');
+   //TODO add tags that can link to tags in the recruit class to link recruits to a job
+ }
+
  goBack(): void {
   this.location.back();
  }

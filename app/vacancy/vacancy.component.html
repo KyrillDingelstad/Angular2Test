@@ -1,23 +1,22 @@
 <div *ngIf="company">
-  <h2>{{company.name}} details!</h2>
-  <div>
-    <label>id: </label>{{company.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="company.name" placeholder="name" />
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
+  <h2>{{company.name}} vacancies</h2>
 </div>
-   
-<ul class="vacancies">
+<div class="scrollable">
+  <ul class="vacancies">
     <li *ngFor="let vacancy of vacancies"
-        [class.selected]="vacancy === selectedVacancy"
-        (click)="onSelect(vacancy)">
-        <span class="badge">{{vacancy.id}}</span> 
-        <span>{{vacancy.description}}</span>
-        <button class="delete"
-            (click)="delete(vacancy); $event.stopPropagation()">x</button>
+          [class.selected]="vacancy === selectedVacancy"
+          (click)="onSelect(vacancy)"
+          class="vacancy">
+          <h3>{{vacancy.jobtitle}}</h3>
+          <p>{{vacancy.shortDescription}}</p>
+          <ul>
+            <li *ngFor="let tag of vacancy.tags">
+              <span> {{tag}} </span>
+            </li>
+          </ul>
+          <button class="delete"
+              (click)="delete(vacancy); $event.stopPropagation()">x</button>
 
     </li>
   </ul>
+</div>

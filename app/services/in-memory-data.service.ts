@@ -2,18 +2,26 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let recruits = [
-      {id: 1, name: 'Kyrill'},
-      {id: 2, name: 'Therese'},
+      { 
+        id: 1, 
+        name: 'Kyrill'
+        tags: ['javascript', 'angular'],
+      },
+      {
+        id: 2, 
+        name: 'Therese'
+        tags: ['design', 'photoshop'],
+      },
     ];
 
     let companies = [
       { 
-        name: 'TopTemp',
         id: 1, 
+        name: 'TopTemp',
       },
       {
-        name: 'Google',
         id: 2, 
+        name: 'Google',
       },
     ];
 
@@ -22,32 +30,45 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 1,
           owner: 'google',
           jobtitle: 'developer',
-          description: 'bloobblieb'
+          shortDescription: 'bloobblieb'
+          tags: ['plop', 'ploep']
         },
         {
           id: 2,
           owner: 'Google',
           jobtitle: 'developer',
-          description: 'blablabla'
+          shortDescription: 'blablabla'
         },
         {
           id: 3,
           owner: 'Google',
           jobtitle: 'developer',
-          description: 'blablabla'
+          shortDescription: 'blablabla'
         },
         {
           id: 4,
           owner: 'TopTemp',
           jobtitle: 'developer',
-          description: 'blablabla'
+          shortDescription: 'blablabla'
         },
         {
           id: 5,
           owner: 'TopTemp',
           jobtitle: 'developer',
-          description: 'blablabla'
-        }
+          shortDescription: 'blablabla'
+        },
+        {
+          id: 6,
+          owner: 'Google',
+          jobtitle: 'developer',
+          shortDescription: 'blablabla'
+        },
+        {
+          id: 7,
+          owner: 'Google',
+          jobtitle: 'developer',
+          shortDescription: 'blablabla'
+        },
     ]
     
     return {recruits, companies, vacancies};

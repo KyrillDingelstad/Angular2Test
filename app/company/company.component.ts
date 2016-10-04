@@ -14,6 +14,7 @@ import { CompanyService } from '../services/company.service';
 export class CompanyComponent implements OnInit{
   companies: Company[];
   selectedCompany: Company;
+  addText = 'Add a company';
   constructor(
     private router: Router,
     private companyService: CompanyService) { }
@@ -28,6 +29,14 @@ export class CompanyComponent implements OnInit{
   }
   gotoDetail(): void {
     this.router.navigate(['company/details', this.selectedCompany.id]);
+  }
+  onInputClicked(){
+    if(this.addText === 'Add a company') this.addText = '';
+  }
+
+  onBlur() {
+    if(this.addText.length === 0 ) this.addText = 'Add a company';
+    this.addText = this.addText;
   }
 
   add(name: string): void {

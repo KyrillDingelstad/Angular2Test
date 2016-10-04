@@ -11,6 +11,7 @@ import { Company } from '../company/company';
   providers: [CompanySearchService]
 })
 export class CompanySearchComponent implements OnInit {
+  searchDefault = 'Search';
   companies: Observable<Company[]>;
   private searchTerms = new Subject<string>();
   constructor(
@@ -34,6 +35,15 @@ export class CompanySearchComponent implements OnInit {
         console.log(error);
         return Observable.of<Company[]>([]);
       });
+  }
+
+  searchClicked(){
+    this.searchDefault = '';
+  }
+
+  onBlur(){
+    if(this.searchDefault.length === 0 ) this.searchDefault = 'Search';
+    this.searchDefault = this.searchDefault;
   }
   gotoDetail(company: Company): void {
     let link = ['/company/details', company.id];

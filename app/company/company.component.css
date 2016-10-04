@@ -1,60 +1,67 @@
-[class*='col-'] {
-  float: left;
+.company-component {
+  display: flex; 
 }
-*, *:after, *:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.scrollable {
+  height: 500px;
+  overflow-y: auto;
 }
-h3 {
-  text-align: center; margin-bottom: 0;
-}
-[class*='col-'] {
-  padding-right: 20px;
-  padding-bottom: 20px;
-}
-[class*='col-']:last-of-type {
-  padding-right: 0;
-}
-.grid {
-  margin: 0;
-}
-.col-1-4 {
-  width: 25%;
-}
-.module {
-    padding: 20px;
-    text-align: center;
-    color: #eee;
-    max-height: 120px;
-    min-width: 120px;
-    background-color: #607D8B;
-    border-radius: 2px;
-}
-h4 {
+.companies li{
   position: relative;
-}
-.module:hover {
-  background-color: #EEE;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 10px 0;
+  height: 100px;
   cursor: pointer;
-  color: #607d8b;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  transition: all 0.3s ease-in-out;
+  color: grey;
 }
-.grid-pad {
-  padding: 10px 0;
+
+.companies li:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  color: #708090;
 }
-.grid-pad > [class*='col-']:last-of-type {
-  padding-right: 20px;
+
+li button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: Arial;
+  border: none;
+  background: none;
+  padding: 5px 10px;
+  cursor: pointer; 
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
 }
-@media (max-width: 600px) {
-    .module {
-      font-size: 10px;
-      max-height: 75px; }
+
+
+li:hover > button {
+  opacity: 1;
 }
-@media (max-width: 1024px) {
-    .grid {
-      margin: 0;
-    }
-    .module {
-      min-width: 60px;
-    }
+
+button:hover {
+  color: red;
+}
+
+.company-add {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center;
+  padding: 10px;
+  height: 20px;
+  padding-bottom: 0;
+}
+.company-add input {
+  color: #9e9e9e;
+}
+.company-add button {
+  cursor: pointer;
+  border: 1px solid #9e9e9e;
+  margin-left: 5px;
+  background: none;
+}
+.company-add button:hover {
+  color: #708090;
 }
