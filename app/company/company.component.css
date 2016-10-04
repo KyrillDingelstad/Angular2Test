@@ -5,6 +5,10 @@
   height: 500px;
   overflow-y: auto;
 }
+
+.companies {
+  flex: 0.2
+}
 .companies li{
   position: relative;
   display: flex;
@@ -36,7 +40,6 @@ li button {
   opacity: 0;
 }
 
-
 li:hover > button {
   opacity: 1;
 }
@@ -64,4 +67,8 @@ button:hover {
 }
 .company-add button:hover {
   color: #708090;
+}
+
+.vacancies-wrapper {
+  flex: 0.8
 }

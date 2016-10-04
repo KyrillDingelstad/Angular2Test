@@ -22,13 +22,7 @@ const appRoutes: Routes = [
     path: 'companies',
     component: CompanyComponent
   },
-  
-  {
-    path: 'company/details/:id',
-    component: VacancyComponent
-  },
-  
-  
+    
   {
     path: 'recruit/details/:id',
     component: RecruitDetailsComponent

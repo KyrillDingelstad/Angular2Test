@@ -12,6 +12,7 @@ import { Recruit } from '../recruit/recruit';
 })
 export class RecruitSearchComponent implements OnInit {
   recruits: Observable<Recruit[]>;
+  searchDefault = 'Search';
   private searchTerms = new Subject<string>();
   constructor(
     private recruitSearchService: RecruitSearchService,
@@ -34,6 +35,14 @@ export class RecruitSearchComponent implements OnInit {
         console.log(error);
         return Observable.of<Recruit[]>([]);
       });
+  }
+  searchClicked(){
+    this.searchDefault = '';
+  }
+
+  onBlur(){
+    if(this.searchDefault.length === 0 ) this.searchDefault = 'Search';
+    this.searchDefault = this.searchDefault;
   }
   gotoDetail(recruit: Recruit): void {
     let link = ['/recruit/details', recruit.id];

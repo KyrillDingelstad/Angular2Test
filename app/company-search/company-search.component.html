@@ -2,6 +2,6 @@
     <input #searchBox class="search-box" (keyup)="search(searchBox.value)" (click)=searchClicked() [(ngModel)]="searchDefault" (blur)=onBlur()>
     <div *ngFor="let company of companies | async"
         (click)="gotoDetail(company)" class="search-result">
-      {{company.name}}
+        {{company.name}}
     </div>
 </div>

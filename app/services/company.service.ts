@@ -32,6 +32,10 @@ export class CompanyService {
     return this.getVacancies()
           .then(vacancies => vacancies.filter(vacancy => vacancy.owner.toLocaleLowerCase() === owner.toLocaleLowerCase() ));
   }
+
+  getVacancy (id: number): Promise<Vacancy> {
+    return this.getVacancies().then(vacancies => vacancies.find(vacancy => vacancy.id === id));
+  }
   getCompany(id: number): Promise<Company> {
     return this.getCompanies()
                .then(companies => companies.find(company => company.id === id));
@@ -62,6 +66,14 @@ export class CompanyService {
   }
   delete(id: number): Promise<void> {
   const url = `${this.companiesUrl}/${id}`;
+  return this.http.delete(url, {headers: this.headers})
+    .toPromise()
+    .then(() => null)
+    .catch(this.handleError);
+  }
+
+  deleteVacancy(id: number): Promise<void> {
+  const url = `${this.vacancyUrl}/${id}`;
   return this.http.delete(url, {headers: this.headers})
     .toPromise()
     .then(() => null)

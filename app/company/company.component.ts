@@ -27,9 +27,6 @@ export class CompanyComponent implements OnInit{
   onSelect(company: Company): void {
     this.selectedCompany= company;
   }
-  gotoDetail(): void {
-    this.router.navigate(['company/details', this.selectedCompany.id]);
-  }
   onInputClicked(){
     if(this.addText === 'Add a company') this.addText = '';
   }

@@ -46,7 +46,6 @@ export class CompanySearchComponent implements OnInit {
     this.searchDefault = this.searchDefault;
   }
   gotoDetail(company: Company): void {
-    let link = ['/company/details', company.id];
-    this.router.navigate(link);
+    //TODO link company search to the list of companies
   }
 }

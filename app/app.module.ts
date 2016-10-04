@@ -35,7 +35,7 @@ import { CompanySearchComponent }  from './company-search/company-search.compone
     RecruitSearchComponent,
     CompanyComponent,
     VacancyComponent,
-    CompanySearchComponent,
+    CompanySearchComponent
   ],
   providers: [
     RecruitService,

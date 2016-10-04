@@ -23,12 +23,12 @@ export class RecruitDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-  if(this.recruit) return;
-  this.route.params.forEach((params: Params) => {
-    let id = +params['id'];
-    this.recruitService.getRecruit(id)
-      .then(recruit => this.recruit = recruit);
-  });
+    if(this.recruit) return;
+      this.route.params.forEach((params: Params) => {
+        let id = +params['id'];
+        this.recruitService.getRecruit(id)
+          .then(recruit => this.recruit = recruit);
+    });
  }
  goBack(): void {
   this.location.back();

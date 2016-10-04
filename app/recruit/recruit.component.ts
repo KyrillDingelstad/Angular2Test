@@ -14,6 +14,7 @@ import { RecruitService } from '../services/recruit.service';
 export class RecruitsComponent implements OnInit{
   recruits: Recruit[];
   selectedRecruit: Recruit;
+  addText = 'Add a recruit';
   constructor(
     private router: Router,
     private RecruitService: RecruitService) { }
@@ -28,6 +29,14 @@ export class RecruitsComponent implements OnInit{
   }
   gotoDetail(): void {
     this.router.navigate(['/recruit/details', this.selectedRecruit.id]);
+  }
+
+  onInputClicked(){
+    if(this.addText === 'Add a recruit') this.addText = '';
+  }
+  onBlur() {
+    if(this.addText.length === 0 ) this.addText = 'Add a recruit';
+    this.addText = this.addText;
   }
 
   add(name: string): void {

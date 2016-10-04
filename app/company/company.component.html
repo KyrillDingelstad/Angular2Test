@@ -1,13 +1,12 @@
 <div class="company-component">
-  <div class="companies" style="flex: 0.2">
+  <div class="companies">
     <company-search></company-search>
     <div class="scrollable">
       <ul>
         <li *ngFor="let company of companies"
             class="company"
             [class.selected]="company === selectedCompany"
-            (click)="onSelect(company)"
-            style="align-items: center; justify-content: center; display: flex;">
+            (click)="onSelect(company)">
           <span style="align-items: center;">{{company.name}}</span>
           <button class="delete" (click)="delete(company); $event.stopPropagation()">x</button>
         </li>
@@ -21,7 +20,7 @@
     </div>
   </div>
 
-  <div class="vacancies-wrapper" style="flex: 0.8">
+  <div class="vacancies-wrapper">
     <div *ngIf="selectedCompany">
       <vacancies [company]="selectedCompany"></vacancies>
     </div>

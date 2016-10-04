@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChange} from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
+import { ActivatedRoute, Params, Router }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
 import { CompanyService } from '../services/company.service';
@@ -25,20 +25,25 @@ export class VacancyComponent implements OnInit {
 
   recruits: Recruit[];
   vacancies: Vacancy[];
+  vacancy: Vacancy;
+  selectedVacancy: Vacancy;
   possibleRecruits: Recruit[];
 
   constructor(
     private companyService: CompanyService,
     private route: ActivatedRoute,
+    private router: Router,
     private location: Location,
     private recruitService: RecruitService
-  ) {}
+  ) {
+  }
 
   getVacancies(): void {
     this.companyService.getCompanyVacancies(this.company.name).then(vacancies => this.vacancies = vacancies);
   }
-  
+
   ngOnInit(): void {
+
   if(!this.recruits) {
     this.recruitService.getRecruits().then(recruits => this.recruits = recruits);
   }
@@ -60,6 +65,7 @@ export class VacancyComponent implements OnInit {
  }
 
  onSelect(vacancy: Vacancy) {
+  this.selectedVacancy = vacancy;
    this.possibleRecruits = [];
    if(!vacancy.tags) return;
    for (var i = 0; i < this.recruits.length; i++) {
@@ -68,15 +74,25 @@ export class VacancyComponent implements OnInit {
        this.possibleRecruits.push(recruit);
      };
    }
-   console.log(this.possibleRecruits);
  }
 
  goBack(): void {
   this.location.back();
  }
 
- save(): void {
-    this.companyService.update(this.company)
-    .then(() => this.goBack());
-  }  
+goToRecruit(id: number) {
+
+    this.router.navigate(['/recruit/details', id]);
+}
+
+delete(vacancy: Vacancy) {
+  this.companyService
+      .deleteVacancy(vacancy.id)
+      .then(() => {
+        this.vacancies = this.vacancies.filter(h => h !== vacancy);
+        if (this.selectedVacancy === vacancy) { this.selectedVacancy = null; }
+      });
+  }
+}
+
 }

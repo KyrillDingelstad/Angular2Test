@@ -17,17 +17,18 @@
           <button class="delete"
               (click)="delete(vacancy); $event.stopPropagation()">x</button>
       
-        <div *ngIf="hideOverlay === false" class="popup-overlay"> 
+        <div *ngIf="hideOverlay === false" class="popup-overlay"  (click)="$event.stopPropagation()"> 
           <div class="vacancy-details">
             <h2> {{vacancy.jobtitle}} </h2>
             <p> {{vacancy.shortDescription}}</p>
-            <span> Best Candidates: </span>
+
+            <span *ngIf="possibleRecruits.length"> Best Candidates: </span>
               <ul>
-              <li *ngFor="let recruit of possibleRecruits">
+                <li *ngFor="let recruit of possibleRecruits" class="possible-recruit" (click)="goToRecruit(recruit.id)">
                   {{recruit.name}}
-              </li>
+                </li>
               </ul>
-            <button class="delete"
+            <button class="close-overlay"
               (click)="hideOverlay = true; $event.stopPropagation()">x</button>
           </div>
         </div>

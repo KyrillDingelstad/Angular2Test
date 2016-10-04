@@ -4,12 +4,12 @@ export class InMemoryDataService implements InMemoryDbService {
     let recruits = [
       { 
         id: 1, 
-        name: 'Kyrill'
+        name: 'Kyrill',
         tags: ['javascript', 'angular'],
       },
       {
         id: 2, 
-        name: 'Therese'
+        name: 'Therese',
         tags: ['design', 'photoshop'],
       },
     ];
@@ -30,15 +30,15 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 1,
           owner: 'google',
           jobtitle: 'developer',
-          shortDescription: 'bloobblieb'
-          tags: ['javascript', 'ploep']
+          shortDescription: 'bloobblieb',
+          tags: ['javascript', 'ploep'],
         },
         {
           id: 2,
           owner: 'Google',
           jobtitle: 'developer',
-          shortDescription: 'blablabla'
-          tags: ['design', 'ploep']
+          shortDescription: 'blablabla',
+          tags: ['design', 'ploep'],
         },
         {
           id: 3,
