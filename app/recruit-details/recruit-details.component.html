@@ -1,11 +1,17 @@
-<div *ngIf="recruit">
-  <h2>{{recruit.name}} details!</h2>
-  <div>
-    <label>id: </label>{{recruit.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="recruit.name" placeholder="name" />
+<div class="recruit-details-component">
+  <div *ngIf="recruit">
+    <h2>{{recruit.name}}</h2>
+    <div>
+      <div>
+        <p> {{recruit.description}}</p>
+        <span> List of skills: </span>
+        <ul>
+          <li *ngFor="let tag of recruit.tags">
+            {{tag}}
+          </li>
+        </ul>
+        <input [(ngModel)]="skill" placeholder="skill" />
+        <button (click)="addTag()">add</button>
+      </div>
   </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="save()">Save</button>
-</div>
+  </div>

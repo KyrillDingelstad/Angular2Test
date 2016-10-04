@@ -7,7 +7,7 @@
           [class.selected]="vacancy === selectedVacancy"
           (click)="onSelect(vacancy); hideOverlay = false;"
           class="vacancy">
-          <h3>{{vacancy.jobtitle}}</h3>
+          <h3>{{vacancy.title}}</h3>
           <p>{{vacancy.shortDescription}}</p>
           <ul>
             <li *ngFor="let tag of vacancy.tags">
@@ -16,24 +16,27 @@
           </ul>
           <button class="delete"
               (click)="delete(vacancy); $event.stopPropagation()">x</button>
-      
-        <div *ngIf="hideOverlay === false" class="popup-overlay"  (click)="$event.stopPropagation()"> 
-          <div class="vacancy-details">
-            <h2> {{vacancy.jobtitle}} </h2>
-            <p> {{vacancy.shortDescription}}</p>
-
-            <span *ngIf="possibleRecruits.length"> Best Candidates: </span>
-              <ul>
-                <li *ngFor="let recruit of possibleRecruits" class="possible-recruit" (click)="goToRecruit(recruit.id)">
-                  {{recruit.name}}
-                </li>
-              </ul>
-            <button class="close-overlay"
-              (click)="hideOverlay = true; $event.stopPropagation()">x</button>
-          </div>
-        </div>
     </li>
-
   </ul>
+</div>
+
+<div *ngIf="hideOverlay === false" class="popup-overlay"  (click)="$event.stopPropagation()"> 
+  <div class="vacancy-details">
+    <h2> {{selectedVacancy.title}} </h2>
+    <p> {{selectedVacancy.description}}</p>
+    <h3>Your role: </h3>
+    <p> {{selectedVacancy.role}}</p>
+    <h3>You are:</h3>
+    <p> {{selectedVacancy.need}} </p>
+            
+    <span *ngIf="possibleRecruits.length"> Matching candidates: </span>
+      <ul>
+        <li *ngFor="let recruit of possibleRecruits" class="possible-recruit" (click)="goToRecruit(recruit.id)">
+          {{recruit.name}}
+        </li>
+      </ul>
+      <button class="close-overlay"
+          (click)="hideOverlay = true; $event.stopPropagation()">x</button>
+  </div>
 </div>
 

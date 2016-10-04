@@ -10,6 +10,7 @@
   flex: 0.2
 }
 .companies li{
+  align-items: center; 
   position: relative;
   display: flex;
   justify-content: space-around;

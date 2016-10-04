@@ -18,7 +18,6 @@ import { RecruitSearchComponent }  from './recruit-search/recruit-search.compone
 import { CompanyComponent }        from './company/company.component';
 import { CompanyService }          from './services/company.service';
 import { VacancyComponent } from './vacancy/vacancy.component';
-import { CompanySearchComponent }  from './company-search/company-search.component';
 
 @NgModule({
   imports: [
@@ -35,7 +34,6 @@ import { CompanySearchComponent }  from './company-search/company-search.compone
     RecruitSearchComponent,
     CompanyComponent,
     VacancyComponent,
-    CompanySearchComponent
   ],
   providers: [
     RecruitService,

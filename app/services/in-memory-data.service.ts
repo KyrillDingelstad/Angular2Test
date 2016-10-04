@@ -4,13 +4,15 @@ export class InMemoryDataService implements InMemoryDbService {
     let recruits = [
       { 
         id: 1, 
-        name: 'Kyrill',
-        tags: ['javascript', 'angular'],
+        name: 'Kyrill Dingelstad',
+        description: 'My name is Kyrill Dingelstad. When I am not working I enjoy playing games, watching shows, creating music or developing apps',
+        tags: ['javascript', 'angular', 'nodejs', 'front-end', 'html', 'css', 'backend'],
       },
       {
         id: 2, 
-        name: 'Therese',
-        tags: ['design', 'photoshop'],
+        name: 'Therese Møllevik',
+        description: 'My name is Therese Møllevik and I really love my boyfriend',
+        tags: ['design', 'photoshop', 'illustrator', 'sales'],
       },
     ];
 
@@ -23,53 +25,90 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 2, 
         name: 'Google',
       },
+      {
+        id: 3, 
+        name: 'Microsoft',
+      },
     ];
 
     let vacancies = [
         {
           id: 1,
-          owner: 'google',
-          jobtitle: 'developer',
-          shortDescription: 'bloobblieb',
-          tags: ['javascript', 'ploep'],
+          owner: 'TopTemp',
+          title: 'We are looking for a hot javascript developer',
+          shortDescription: 'We are creating a tool in angular. Are you our new angular developer?',
+          description: 'As a recruiting agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['angular', 'javascript', 'nodejs', 'html', 'css'], 
         },
+
         {
           id: 2,
-          owner: 'Google',
-          jobtitle: 'developer',
-          shortDescription: 'blablabla',
-          tags: ['design', 'ploep'],
+          owner: 'TopTemp',
+          title: 'We are looking for a designer',
+          shortDescription: 'We are creating a tool in angular. Are you our new angular developer?',
+          description: 'As a recruiting agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['photoshop', 'design'], 
         },
+
         {
           id: 3,
           owner: 'Google',
-          jobtitle: 'developer',
-          shortDescription: 'blablabla'
+          title: 'We are looking for a hot c++ developer',
+          shortDescription: 'We are creating a application in c++. Are you our new c++ developer?',
+          description: 'As a global agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['visual studio', 'c++'], 
         },
+
         {
           id: 4,
-          owner: 'TopTemp',
-          jobtitle: 'developer',
-          shortDescription: 'blablabla'
+          owner: 'Google',
+          title: 'We are looking for a hot javascript developer',
+          shortDescription: 'We are creating a tool in angular. Are you our new angular developer?',
+          description: 'As a recruiting agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['angular', 'javascript', 'nodejs', 'html', 'css'], 
         },
+
         {
           id: 5,
-          owner: 'TopTemp',
-          jobtitle: 'developer',
-          shortDescription: 'blablabla'
+          owner: 'Google',
+          title: 'We are looking for a hot javascript developer',
+          shortDescription: 'We are creating a tool in angular. Are you our new angular developer?',
+          description: 'As a recruiting agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['angular', 'javascript', 'nodejs', 'html', 'css'], 
         },
+
         {
           id: 6,
-          owner: 'Google',
-          jobtitle: 'developer',
-          shortDescription: 'blablabla'
+          owner: 'Microsoft',
+          title: 'We are looking for a hot javascript developer',
+          shortDescription: 'We are creating a tool in angular. Are you our new angular developer?',
+          description: 'As a recruiting agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['angular', 'javascript', 'nodejs', 'html', 'css'], 
         },
+
         {
           id: 7,
-          owner: 'Google',
-          jobtitle: 'developer',
-          shortDescription: 'blablabla'
+          owner: 'Microsoft',
+          title: 'We are looking for a hot javascript developer',
+          shortDescription: 'We are creating a tool in angular. Are you our new angular developer?',
+          description: 'As a recruiting agency we always have developer close by. Woring with us can be a huge boost in your personal network.',
+          role: 'Here is a short text about what your tasks will be at this company',
+          need: 'Here is a short text about what we need',
+          tags: ['angular', 'javascript', 'nodejs', 'html', 'css'], 
         },
+        
     ]
     
     return {recruits, companies, vacancies};

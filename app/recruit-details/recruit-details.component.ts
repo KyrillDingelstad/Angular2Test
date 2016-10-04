@@ -15,6 +15,8 @@ export class RecruitDetailsComponent implements OnInit {
   @Input()
   recruit: Recruit;
 
+  skill: string;
+  
   constructor(
     private recruitService: RecruitService,
     private route: ActivatedRoute,
@@ -33,9 +35,8 @@ export class RecruitDetailsComponent implements OnInit {
  goBack(): void {
   this.location.back();
  }
-
- save(): void {
-    this.recruitService.update(this.recruit)
-    .then(() => this.goBack());
-  }  
+ addTag(): void {
+   this.recruit.tags.push(this.skill);
+   this.recruitService.update(this.recruit);
+ }
 }

@@ -30,11 +30,11 @@ export class VacancyComponent implements OnInit {
   possibleRecruits: Recruit[];
 
   constructor(
+    private recruitService: RecruitService,
     private companyService: CompanyService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-    private recruitService: RecruitService
   ) {
   }
 
@@ -67,11 +67,13 @@ export class VacancyComponent implements OnInit {
  onSelect(vacancy: Vacancy) {
   this.selectedVacancy = vacancy;
    this.possibleRecruits = [];
+    console.log(this.recruits);
    if(!vacancy.tags) return;
    for (var i = 0; i < this.recruits.length; i++) {
      var recruit = this.recruits[i];
      if(this.intersect(vacancy.tags, recruit.tags).length) {
        this.possibleRecruits.push(recruit);
+
      };
    }
  }
@@ -93,6 +95,5 @@ delete(vacancy: Vacancy) {
         if (this.selectedVacancy === vacancy) { this.selectedVacancy = null; }
       });
   }
-}
 
 }

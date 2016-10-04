@@ -54,4 +54,5 @@ export class RecruitService {
     .then(() => null)
     .catch(this.handleError);
   }
+  
 }
